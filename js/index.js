@@ -272,6 +272,135 @@ tirarDados();
 // recuerda que es una función).
 
 
-const toDoList = []
+let toDoList = {
+    "tipo de tarea": "Compras",
+    /* Tarea */
 
-let tipodetarea = "Compras"
+    dia: "Jueves",
+    /* Dia */
+
+    // Es un array con objetos 
+    listaProductos: ["banana", "mandarina", "ciruela", "jabon", "cuaderno", "alfajor", "refesco"],
+    /* Productos */
+
+    cantidadDeProducto: 7,
+    /* Cantidad de productos */
+
+    // Es un string
+    estado: "pendiente",
+
+    // Aca creamos la funcion "notificacion" con una alerta.
+    notificacion: function() {
+        alert("Esta tarea tiene una prioridad urgente!")
+    }
+};
+
+/* console log para ver la lista completa, con DOT NOTATION (poniendo punto para llamar) */
+// console.log(toDoList.dia); 
+
+/* este console log es para ver que tarea estamos haciendo, usando bracket notation (parentesis cuadrado para llamar)*/
+// console.log(toDoList["tipo de tarea"]);
+
+/* este console log es para ver la cantidad de productos, usando bracket notation (parentesis cuadrado para llamar)*/
+// console.log(toDoList["cantidadDeProducto"])
+
+/* Aca tenemos la llamada de la funcion con el console log (nos va a dar una alerta pop-up) */
+// console.log(toDoList);
+// toDoList.notificacion();
+
+
+
+// Ejercicio 10: Consultando valores.
+
+// Muchas veces vamos a tener estructuras más complejas de objetos y nosotros vamos a
+// tener que acordarnos de todos los conceptos que hemos visto hasta ahora. Copia y pega
+// esto en tu archivo JS
+// Consultemos por consola los siguientes valores:
+// 1. Consulta el valor ("Super Hero Squad") de la propiedad squadName.
+// 2. Consulta el valor que dice "Madame Uppercut" (ayuda:
+// objeto-propiedad-arreglo-propiedad).
+// 3. Consulta el valor que dice "Superhuman reflexes".
+// 4. Consulta el valor "39" de la propiedad age de Madame Uppercut.
+
+// CODIGO DADO POR EL EJERCICIO
+const superHeroes = {
+    "squadName": "Super Hero Squad",
+    "homeTown": "Metro City",
+    "formed": 2016,
+    "secretBase": "Super tower",
+    "active": true,
+    "members": [{
+            "name": "Molecule Man",
+            "age": 29,
+            "secretIdentity": "Dan Jukes",
+            "powers": ["Radiation resistance", "Turning tiny", "Radiation blast"]
+        },
+        {
+            "name": "Madame Uppercut",
+            "age": 39,
+            "secretIdentity": "Jane Wilson",
+            "powers": ["Million tonne punch", "Damage resistance", "Superhuman reflexes "]
+        }
+    ]
+}
+
+// Aca hacemos las consultas solicitadas.
+
+// Accedemos al valor de "Super Hero Squad" con Dot notation.
+console.log(superHeroes.squadName);
+
+// Accedemos al valor "Madame Uppercut" de la propiedad "name" del segundo objeto dentro del arreglo "members", con Corchetes anidados.
+console.log(superHeroes["members"][1]["name"]); /* ponemos el el numoro la posicion a consultar sino sabemos hacmeos un console log*/
+
+// Accedemos al valor "Superhuman reflexes" dentro del arreglo "powers" del objeto Madame Uppercut, con corchetes anidados.
+console.log(superHeroes["members"][1]["powers"][2]);
+
+// Aca accedemos al valor "39" de la propiedad age de Madame Uppercut, con la anotacion de corchetes anidados:
+console.log(superHeroes["members"][1]["age"]);
+
+
+
+
+// Ejercicios de métodos avanzados de arrays
+
+// EJERCICIO 1: Mis amigos.
+// Probablemente te acuerdes de este ejercicio que ya lo hemos trabajado antes, pues ahora
+// filtraremos los amigos con el método filter(). Recuerda que el programa debe filtrar el arreglo
+// y devolver uno nuevo con el nombre de sus amigos. Si un nombre tiene exactamente 4
+// letras, ¡puedes estar seguro que es amigo tuyo! De lo contrario, no lo son.
+// const amigo = [“Ryan”, “Kieran”, “Mark”, “Miguel”]
+// El resultado esperado es [“Ryan”, “Mark”]
+
+
+// Declaramos la constante friends
+const friends = ["Ryan", "Kieran", "Mark", "Miguel"]
+
+// La función filter() recorre cada elemento del arreglo, si hay un true muestra el arreglo si hay un false lo descarta.
+const mejores = friends.filter(friend => friend.length === 4); /* funcion arroW (con el nombre de la const."filter") */
+// Lo puse en ingles por que me estaba dando error con el codigo de arriba.
+
+// Console log que da el resultado.
+console.log("Tus amigos son: " + mejores);
+
+
+// EJERCICIO 2: Corrigeme la frase.
+// Tenemos un arreglo llamado frases con varias sentencias al azar. Usá la función map() para
+// que cada frase empiece y termine con signos de exclamación.
+// const frases = ['Labore sea dolor.', 'Justo rebum dolor.', 'Stet lorem amet.'];
+// El resultado esperado es:
+// console.log(frases); // ['Labore sea dolor.', 'Justo rebum dolor.', 'Stet lorem amet.']
+// console.log(frasesExclamadas); // [ '¡Labore sea dolor.!', '¡Justo rebum dolor.!', '¡Stet lorem
+// amet.!' ]
+
+
+// Declaramos la constante frases.
+const frases = ["Labore sea dolor.", "Justo rebum dolor.", "Stet lorem amet."];
+
+// Declaramos otra constante, con el metodo map recorremos cada elemento de "frases" y aplicamos una funcion.
+const frasesExclamadas = frases.map(function(dichos) {
+    /*la function dichos le decimos que retorne con "!¡".  */
+    return '¡' + dichos + '!';
+});
+
+// Aca un console log que muestra el resultado
+console.log(frasesExclamadas);
